@@ -86,7 +86,7 @@ export const YourDetailsForm = () => {
       placeholder="npr. 21310"
       variableName="yourZip"
       customValue={formData.yourZip} 
-        setCustomValue={handleFieldChange('yourZip')} 
+      setCustomValue={handleFieldChange('yourZip')} 
     />
     <CustomTextInput
       label="Drzava:"

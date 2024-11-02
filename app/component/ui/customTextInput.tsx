@@ -1,9 +1,9 @@
 "use client";
 
 import { Input } from "@/app/component/ui/input";
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { getInitialValue } from "@/lib/getInitialValue";
-import { Controller } from "react-hook-form";
+import { Controller, useController } from "react-hook-form";
 
 type CustomInputProps = {
   label?: string;
@@ -19,38 +19,36 @@ const CustomTextInput = ({
   variableName,
   customValue,
   setCustomValue,
-}: CustomInputProps) => (
-  <Controller
-    render={({ field: { onChange, value } }) => {
-      // Effect to handle custom value changes
-      useEffect(() => {
-        if (customValue !== undefined) {
-          localStorage.setItem(variableName, customValue);
-          onChange(customValue); // Trigger the onChange logic
+}: CustomInputProps) => {
+  const { field: { onChange, value } } = useController({
+    name: variableName,
+    defaultValue: getInitialValue(variableName),
+  });
+
+  useEffect(() => {
+    if (customValue !== undefined) {
+      localStorage.setItem(variableName, customValue);
+      // Update form state with customValue
+      onChange(customValue);
+    }
+  }, [customValue, variableName, onChange]);
+
+  return (
+    <Input
+      label={label}
+      placeholder={placeholder}
+      value={value} // Use value from `useController`
+      type="text"
+      onChange={(e) => {
+        const updatedValue = e.target.value;
+        localStorage.setItem(variableName, updatedValue);
+        onChange(updatedValue); // Update form state with user input
+        if (setCustomValue) {
+          setCustomValue(updatedValue); // Update customValue in parent
         }
-      }, [customValue, variableName, onChange]);
-
-      return (
-        <Input
-          label={label}
-          placeholder={placeholder}
-          value={value}
-          type="text"
-          onChange={(e) => {
-            const updatedValue = e.target.value;
-            localStorage.setItem(variableName, updatedValue);
-            onChange(updatedValue); // Regular onChange logic
-            if (setCustomValue) {
-              setCustomValue(updatedValue); // Update customValue in the parent if defined
-            }
-
-          }}
-        />
-      );
-    }}
-    name={variableName}
-    defaultValue={getInitialValue(variableName)}
-  />
-);
+      }}
+    />
+  );
+};
 
 export default CustomTextInput;

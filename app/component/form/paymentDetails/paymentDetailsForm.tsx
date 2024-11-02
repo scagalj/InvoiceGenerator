@@ -63,7 +63,7 @@ export const PaymentDetailsForm = () => {
         setCustomValue={handleFieldChange('accountName')}
       />
 
-      <CustomNumberInput
+      <CustomTextInput
         label="Swift code"
         placeholder="HSBCINAA123"
         variableName="swiftCode"
