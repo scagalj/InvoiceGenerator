@@ -5,6 +5,7 @@ import { FormSteps } from "@/app/component/form/step/fromSteps";
 import { UserDataPreview } from "@/app/new/component/userDataPreview";
 import { useForm, FormProvider } from "react-hook-form";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export const NewInvoiceForm = () => {
   const methods = useForm();
@@ -29,6 +30,17 @@ export const NewInvoiceForm = () => {
         <FormProvider {...methods}>
           <div className="max-w-lg min-h-screen w-full h-full p-4 md:p-12 border-r border-dashed flex flex-col justify-between">
             <div>
+              <div className="mb-10">
+                
+                  <Link
+                  href="/"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring font-medium disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-br from-orange-500 to-pink-400 text-white hover:bg-black/90 px-3 py-1"
+                >
+                Back to Home
+              </Link>
+              
+              </div>
+
               <div className="flex gap-2 items-center">
                 <Image
                   src="/android-chrome-512x512.png"
@@ -39,7 +51,6 @@ export const NewInvoiceForm = () => {
                 />
                 <div>
                   <p className="font-semibold">Invoice Generator</p>
-                  <p className="text-orange-500 text-sm">By Prolab</p>
                 </div>
               </div>
               <UserInputForm />

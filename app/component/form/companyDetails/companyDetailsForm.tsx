@@ -3,7 +3,7 @@ import CustomNumberInput from "@/app/component/ui/customNumberInput";
 import ImageInput from "@/app/component/ui/imageInput";
 
 export const CompanyDetailsForm = () => (
-  <div className="pt-24">
+  <div className="pt-10">
     <p className="text-2xl font-semibold pb-3">Client Details (To)</p>
     <CustomTextInput
       label="Email"
@@ -16,7 +16,7 @@ export const CompanyDetailsForm = () => (
     <p className="pb-2 text-sm font-medium text-neutral-500">Billing details</p>
     <CustomTextInput
       label="Company name"
-      placeholder="Money generator d.o.o"
+      placeholder="npr. Money generator d.o.o"
       variableName="companyName"
     />
     <div className="hidden">
@@ -24,19 +24,19 @@ export const CompanyDetailsForm = () => (
     </div>
     <CustomTextInput
       label="Address"
-      placeholder="Aniceva 23B"
+      placeholder="npr. Aniceva 23B"
       variableName="companyAddress"
     />
     <CustomTextInput
       label="City"
-      placeholder="Zagreb"
+      placeholder="npr. Zagreb"
       variableName="companyCity"
     />
 
     <div className="hidden">
       <CustomTextInput
         label="State"
-        placeholder="Karnataka"
+        placeholder="npr. Splitsko Dalmatinska Županija"
         variableName="companyState"
       />
     </div>
@@ -48,9 +48,8 @@ export const CompanyDetailsForm = () => (
     />
     <CustomTextInput
       label="Country"
-      placeholder="Croatia"
+      placeholder="npr. Hrvatska"
       variableName="companyCountry"
-      customValue="Croatia"
     />
     <CustomTextInput
       label="OIB"

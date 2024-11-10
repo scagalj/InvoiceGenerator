@@ -2,7 +2,7 @@
 
 import { Input } from "@/app/component/ui/input";
 import React, { useEffect, useCallback } from 'react';
-import { getInitialValue } from "@/lib/getInitialValue";
+import { getInitialValueWithCompany } from "@/lib/getInitialValue";
 import { Controller, useController } from "react-hook-form";
 
 type CustomInputProps = {
@@ -22,7 +22,7 @@ const CustomTextInput = ({
 }: CustomInputProps) => {
   const { field: { onChange, value } } = useController({
     name: variableName,
-    defaultValue: getInitialValue(variableName),
+    defaultValue: getInitialValueWithCompany(variableName),
   });
 
   useEffect(() => {

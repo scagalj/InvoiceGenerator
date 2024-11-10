@@ -38,37 +38,29 @@ export const PaymentDetailsForm = () => {
 
   return (
 
-    <div className="pt-24">
+    <div className="pt-10">
       <p className="text-2xl font-semibold pb-3">Payment Details</p>
       <CustomTextInput
         label="Ime banke"
         placeholder="npr. OTP banka d.d."
         variableName="bankName"
-        customValue={formData.bankName}
-        setCustomValue={handleFieldChange('bankName')}
       />
       <CustomTextInput
         label="IBAN: "
         placeholder="npr. HR8920804195"
         variableName="accountNumber"
-        customValue={formData.accountNumber}
-        setCustomValue={handleFieldChange('accountNumber')}
       />
 
       <CustomTextInput
         label="Vlasnik računa: "
         placeholder="npr. Stjepan Čagalj"
         variableName="accountName"
-        customValue={formData.accountName}
-        setCustomValue={handleFieldChange('accountName')}
       />
 
       <CustomTextInput
         label="Swift code"
         placeholder="HSBCINAA123"
         variableName="swiftCode"
-        customValue={formData.swiftCode}
-        setCustomValue={handleFieldChange('swiftCode')}
       />
 
       <div>
@@ -78,8 +70,7 @@ export const PaymentDetailsForm = () => {
         <CustomTextInput
           placeholder="Upute za placanje"
           variableName="paymentNote"
-          customValue={formData.paymentNote}
-          setCustomValue={handleFieldChange('paymentNote')} />
+          />
       </div>
 
       <div className="my-4">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@/app/component/ui/input";
-import { getInitialValue } from "@/lib/getInitialValue";
+import { getInitialValueWithCompany } from "@/lib/getInitialValue";
 import { Controller, useController } from "react-hook-form";
 import React, { useEffect } from 'react';
 
@@ -24,7 +24,7 @@ export const CustomNumberInput = ({
 }: CustomNumberProps) => {
   const { field: { onChange, value } } = useController({
     name: variableName,
-    defaultValue: getInitialValue(variableName),
+    defaultValue: getInitialValueWithCompany(variableName),
   });
 
   useEffect(() => {
